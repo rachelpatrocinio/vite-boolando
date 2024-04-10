@@ -1,4 +1,15 @@
-<script></script>
+<script>
+export default{
+    data(){
+        return{
+            links:{
+                donna: 'Donna',
+                uomo: 'Uomo',
+                bambini: 'Bambini'
+            }
+        }
+    }
+}</script>
 
 <template>
     <header class="main-header">
@@ -6,9 +17,7 @@
             <div class="row">
                 <div class="col-3">
                     <ul class="d-flex justify-start">
-                        <li class="main-menu-items"><a href="#">Donna</a></li>
-                        <li class="main-menu-items"><a href="#">Uomo</a></li>
-                        <li class="main-menu-items"><a href="#">Bambini</a></li>
+                        <li v-for="link in links"class="main-menu-items"><a href="#">{{ link }}</a></li>
                     </ul>
                 </div>
                 <div class="col-3 d-flex justify-center">
