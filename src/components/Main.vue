@@ -129,7 +129,7 @@
 </main>
 </template>
 
-<style>
+<style lang="scss" scoped>
 /* CARDS */
 
 .card__header{
