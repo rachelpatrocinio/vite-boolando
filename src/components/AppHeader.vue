@@ -2,11 +2,11 @@
 export default{
     data(){
         return{
-            links:{
-                donna: 'Donna',
-                uomo: 'Uomo',
-                bambini: 'Bambini'
-            }
+            links:[
+                {item: 'Donna'},
+                {item: 'Uomo'},
+                {item: 'Bambini'}
+            ]
         }
     }
 }</script>
@@ -17,7 +17,7 @@ export default{
             <div class="row">
                 <div class="col-3">
                     <ul class="d-flex justify-start">
-                        <li v-for="link in links"class="main-menu-items"><a href="#">{{ link }}</a></li>
+                        <li v-for="link in links"class="main-menu-items"><a href="#">{{ link.item }}</a></li>
                     </ul>
                 </div>
                 <div class="col-3 d-flex justify-center">
