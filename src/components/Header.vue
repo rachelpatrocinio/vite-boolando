@@ -5,18 +5,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-3">
-                    <ul class="d-flex">
+                    <ul class="d-flex justify-start">
                         <li class="main-menu-items"><a href="#">Donna</a></li>
                         <li class="main-menu-items"><a href="#">Uomo</a></li>
                         <li class="main-menu-items"><a href="#">Bambini</a></li>
                     </ul>
                 </div>
-                <div class="col-3 d-flex">
+                <div class="col-3 d-flex justify-center">
                     <figure class="logo">
                         <img src="/public/boolean-logo.png" alt="Logo Boolean">
                     </figure>
                 </div>
-                <div class="col-3 d-flex">
+                <div class="col-3 d-flex justify-end">
                     <ul class="d-flex">
                         <li class="main-menu-links">
                             <a href="#">
