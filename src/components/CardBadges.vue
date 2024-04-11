@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-    <span v-for="badge in badges" :Class="badge.type === 'tag' ? 'badge__green': 'badge__red'">{{ badge.value }}</span>
+    <span v-for="badge in badges" :class="badge.type === 'tag' ? 'badge__green': 'badge__red'">{{ badge.value }}</span>
 </template>
 
 <style lang="scss" scoped>
