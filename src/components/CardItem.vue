@@ -13,6 +13,14 @@ export default {
         putInFavorites(item){
             item.isInFavorites = !item.isInFavorites
         }
+    },
+    computed:{
+        fiftyPercentDiscounted(){
+            return (this.item.price - (this.item.price * 0.50)).toFixed(2)
+        },
+        thirtyPercentDiscounted(){
+            return (this.item.price - (this.item.price * 0.30)).toFixed(2)
+        }
     }
 }
 </script>
@@ -32,9 +40,9 @@ export default {
         <div class="card__body">
             <span class="brand-name">{{ item.brand }}</span>
             <h5>{{item.name}}</h5>
-            <template v-for="badge in item.badges" :key="i">
-                <span v-if="badge.value === '-50%'" class="price-tag c-red">{{ (item.price - (item.price * 0.50)).toFixed(2) }}</span>
-                <span v-else-if="badge.value === '-30%'" class="price-tag c-red">{{ (item.price - (item.price * 0.30)).toFixed(2) }}</span>
+            <template v-for="(badge,i) in item.badges" :key="i">
+                <span v-if="badge.value === '-50%'" class="price-tag c-red">{{ this.fiftyPercentDiscounted }}</span>
+                <span v-else-if="badge.value === '-30%'" class="price-tag c-red">{{ this.thirtyPercentDiscounted }}</span>
             </template>
             <span class="price-tag">{{item.price}} €</span>
         </div>
