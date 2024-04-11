@@ -14,15 +14,15 @@ export default {
             <img :src="item.frontImage" alt="RELAXED FIT TEE UNISEX">
             <span class="wishlist-btn"> &hearts;</span>
             <div class="badges">
-                <!-- <span class="badge__red"></span>
-                <span class="badge__green"></span> -->
+                <!-- <span class="badge__red"></span> -->
+                <!-- <span class="badge__green"></span> -->
             </div>
             <div class="overlay">
                 <img :src="item.backImage" alt="RELAXED FIT TEE UNISEX 2">
             </div>                
         </div>
         <div class="card__body">
-            <span class="brand-name">Levi's</span>
+            <span class="brand-name">{{ item.brand }}</span>
             <h5>{{item.name}}</h5>
             <span class="price-tag">{{item.price}} €</span>
             <span class="price-tag-line-through"></span>
@@ -30,7 +30,7 @@ export default {
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 /* CARDS */
 
 .card__header{
