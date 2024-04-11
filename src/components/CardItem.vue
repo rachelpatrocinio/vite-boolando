@@ -4,6 +4,11 @@ export default {
         item:{
             type: Object
         }
+    },
+    methods:{
+        putInFavorites(item){
+            item.isInFavorites = !item.isInFavorites
+        }
     }
 }
 </script>
@@ -12,7 +17,7 @@ export default {
     <div class="card">
         <div class="card__header">
             <img :src="item.frontImage" alt="RELAXED FIT TEE UNISEX">
-            <span class="wishlist-btn"> &hearts;</span>
+            <span @click="putInFavorites(item)" class="wishlist-btn" :class="item.isInFavorites === true ? 'c-red':'c-black'"> &hearts;</span>
             <div class="badges">
                 <!-- <span class="badge__red"></span> -->
                 <!-- <span class="badge__green"></span> -->
@@ -32,6 +37,12 @@ export default {
 
 <style lang="scss" scoped>
 /* CARDS */
+.c-red{
+    color:red;
+}
+.c-black{
+    color:black;
+}
 
 .card__header{
     position: relative;
@@ -45,6 +56,7 @@ export default {
 }
 
 .wishlist-btn{
+    cursor: pointer;
     width: 30px;
     padding: 3px;
     font-size: 12px;
@@ -54,10 +66,6 @@ export default {
     right: 0;
     top: 5px;
     z-index: 100;
-    &:hover{
-        color: red;
-        cursor: pointer;
-    }
 }
 
 .badges{
