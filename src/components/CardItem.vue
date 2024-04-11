@@ -1,5 +1,9 @@
 <script>
+import CardBadges from './CardBadges.vue';
 export default {
+    components:{
+        CardBadges
+    },
     props:{
         item:{
             type: Object
@@ -19,8 +23,7 @@ export default {
             <img :src="item.frontImage" alt="RELAXED FIT TEE UNISEX">
             <span @click="putInFavorites(item)" class="wishlist-btn" :class="item.isInFavorites === true ? 'c-red':'c-black'"> &hearts;</span>
             <div class="badges">
-                <!-- <span class="badge__red"></span> -->
-                <!-- <span class="badge__green"></span> -->
+                <CardBadges :badges="item.badges"/>
             </div>
             <div class="overlay">
                 <img :src="item.backImage" alt="RELAXED FIT TEE UNISEX 2">
@@ -71,25 +74,6 @@ export default {
 .badges{
     position: absolute;
     bottom: 25px;
-}
-
-span[class^=badge]{
-    color: white;
-    padding: 3px;
-    font-size: 10px;
-    font-weight: 700;
-    text-align: center;
-    display: inline-block;
-    z-index: 100;
-}
-.badge__red{
-    background-color: red;
-    width: 50px;
-}
-
-.badge__green{
-    background-color: green;
-    width: 80px;
 }
 
 .price-tag{
