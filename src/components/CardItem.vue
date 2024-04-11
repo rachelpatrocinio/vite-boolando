@@ -32,8 +32,11 @@ export default {
         <div class="card__body">
             <span class="brand-name">{{ item.brand }}</span>
             <h5>{{item.name}}</h5>
+            <template v-for="badge in item.badges" :key="i">
+                <span v-if="badge.value === '-50%'" class="price-tag c-red">{{ (item.price - (item.price * 0.50)).toFixed(2) }}</span>
+                <span v-else-if="badge.value === '-30%'" class="price-tag c-red">{{ (item.price - (item.price * 0.30)).toFixed(2) }}</span>
+            </template>
             <span class="price-tag">{{item.price}} €</span>
-            <span class="price-tag-line-through"></span>
         </div>
     </div>
 </template>
@@ -77,8 +80,12 @@ export default {
 }
 
 .price-tag{
-    color: red;
     font-weight: 700;
+    margin-right: 10px;
+}
+
+.price-tag + span {
+    text-decoration: line-through;
 }
 
 .price-tag-line-through{
