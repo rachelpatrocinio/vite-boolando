@@ -25,6 +25,8 @@ span[class^=badge]{
 .badge__red{
     background-color: red;
     width: 50px;
+    order: -1;
+    margin-right: 5px;
 }
 
 .badge__green{
