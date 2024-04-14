@@ -1,6 +1,7 @@
 <script>
 import CardItem from './CardItem.vue';
-import {store} from '../store.js'
+import {store} from '../store.js';
+import axios from 'axios';
 
 export default {
     components: {
@@ -8,9 +9,21 @@ export default {
     },
     data(){
         return{
-            store: store
+            store: store,
+            products: store.products
         }
-    }
+    },
+    mounted(){
+        axios
+            .get("http://localhost:3000/products")
+            .then((response) => {
+                for(let i = 0; i < response.data.length; i++){
+                    const result = response.data[i]
+                    this.products.push(result)
+                }
+            })
+     }
+
 }
 </script>
 
