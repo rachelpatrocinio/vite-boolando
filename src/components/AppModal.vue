@@ -15,7 +15,7 @@ export default {
 <template>
     <div v-if="open === true" class="modal-container">
         <div class="modal-row d-flex">
-            <span class="close" @click="$emit('close')">X</span>
+            <i class="fa-solid fa-circle-xmark close" @click="$emit('close')"></i>
             <div class="col-6">
                 <img :src="item.frontImage" alt="">
                 <img :src="item.backImage" alt="">
@@ -25,7 +25,7 @@ export default {
                 <hr>
                 <h5 class="mt-10">{{ item.brand }}</h5>
                 <h5 class="mt-10">{{ item.price }} €</h5>
-                
+
             </div>
         </div>
     </div>
@@ -60,6 +60,7 @@ export default {
         top:10px;
         right: 10px;
         cursor: pointer;
+        font-size: 30px;
         }
     }
 }

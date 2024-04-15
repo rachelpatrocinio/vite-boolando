@@ -41,7 +41,7 @@ export default {
     <div class="card">
         <div class="card__header">
             <img :src="item.frontImage" alt="RELAXED FIT TEE UNISEX">
-            <span @click="putInFavorites(item)" class="wishlist-btn" :class="item.isInFavorites === true ? 'c-red':'c-black'"> &hearts;</span>
+            <i  @click="putInFavorites(item)" class="wishlist-btn fa-solid fa-heart" :class="item.isInFavorites === true ? 'c-red':'c-black'"></i>
             <div class="badges d-flex">
                 <CardBadges :badges="item.badges"/>
             </div>
