@@ -21,6 +21,11 @@ body{
     padding: 5px;
 }
 
+.col-6{
+    width: calc(6*100%/12);
+    padding: 5px;
+}
+
 .col-12{
     width: 100%;
 }

@@ -14,19 +14,26 @@ export default {
 
 <template>
     <div v-if="open === true" class="modal-container">
-        <div class="modal-row">
+        <div class="modal-row d-flex">
             <span class="close" @click="$emit('close')">X</span>
-            <div class="col">
-                <img src="" alt="">
+            <div class="col-6">
+                <img :src="item.frontImage" alt="">
+                <img :src="item.backImage" alt="">
             </div>
-            <div class="col">
-                <h2></h2>
+            <div class="col-6">
+                <h2 class="mb-10">{{ item.name }}</h2>
+                <hr>
+                <h5 class="mt-10">{{ item.brand }}</h5>
+                <h5 class="mt-10">{{ item.price }} €</h5>
+                
             </div>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
+@use '../style/general';
+
 .modal-container{
     position: absolute;
     top: 0;
@@ -45,6 +52,8 @@ export default {
         background-color: white;
         position: relative;
         padding: 20px;
+        height: 60%;
+        overflow: auto;
 
         .close{
         position: absolute;

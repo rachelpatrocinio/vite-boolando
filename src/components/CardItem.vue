@@ -37,7 +37,7 @@ export default {
 </script>
 
 <template>
-    <AppModal :open="isOpen" @close="isOpen = false"/>
+    <AppModal :open="isOpen" @close="isOpen = false" :item="item"/>
     <div class="card">
         <div class="card__header">
             <img :src="item.frontImage" alt="RELAXED FIT TEE UNISEX">
@@ -53,8 +53,8 @@ export default {
             <span class="brand-name">{{ item.brand }}</span>
             <h5 @click="confirm">{{item.name}}</h5>
             <template v-for="(badge,i) in item.badges" :key="i">
-                <span v-if="badge.value === '-50%'" class="price-tag c-red">{{ this.fiftyPercentDiscounted }}</span>
-                <span v-else-if="badge.value === '-30%'" class="price-tag c-red">{{ this.thirtyPercentDiscounted }}</span>
+                <span v-if="badge.value === '-50%'" class="price-tag c-red">{{ fiftyPercentDiscounted }}</span>
+                <span v-else-if="badge.value === '-30%'" class="price-tag c-red">{{ thirtyPercentDiscounted }}</span>
             </template>
             <span class="price-tag">{{item.price}} €</span>
         </div>
