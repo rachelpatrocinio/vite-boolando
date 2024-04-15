@@ -20,7 +20,7 @@ span[class^=badge]{
     font-weight: 700;
     text-align: center;
     display: inline-block;
-    z-index: 100;
+    z-index: 1;
 }
 .badge__red{
     background-color: red;

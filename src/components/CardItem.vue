@@ -1,17 +1,28 @@
 <script>
 import CardBadges from './CardBadges.vue';
+import AppModal from './AppModal.vue'
 export default {
     components:{
-        CardBadges
+        CardBadges,
+        AppModal
     },
     props:{
         item:{
             type: Object
         }
     },
+    data(){
+        return{
+            isOpen: false
+        }
+    },
     methods:{
         putInFavorites(item){
             item.isInFavorites = !item.isInFavorites
+        },
+        confirm(){
+            this.isOpen = true
+            console.log(this.isOpen)
         }
     },
     computed:{
@@ -26,6 +37,7 @@ export default {
 </script>
 
 <template>
+    <AppModal :open="isOpen" @close="isOpen = false"/>
     <div class="card">
         <div class="card__header">
             <img :src="item.frontImage" alt="RELAXED FIT TEE UNISEX">
@@ -39,7 +51,7 @@ export default {
         </div>
         <div class="card__body">
             <span class="brand-name">{{ item.brand }}</span>
-            <h5>{{item.name}}</h5>
+            <h5 @click="confirm">{{item.name}}</h5>
             <template v-for="(badge,i) in item.badges" :key="i">
                 <span v-if="badge.value === '-50%'" class="price-tag c-red">{{ this.fiftyPercentDiscounted }}</span>
                 <span v-else-if="badge.value === '-30%'" class="price-tag c-red">{{ this.thirtyPercentDiscounted }}</span>
@@ -65,6 +77,10 @@ export default {
     }
 }
 
+.card__body h5{
+    cursor: pointer;
+}
+
 .brand-name{
     font-size: 12px;
 }
@@ -79,7 +95,7 @@ export default {
     position: absolute;
     right: 0;
     top: 5px;
-    z-index: 100;
+    z-index: 1;
 }
 
 .badges{
